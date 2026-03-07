@@ -1,4 +1,3 @@
-/* Global styles — single-page portfolio (320px minimum) */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -8,10 +7,8 @@
   --mid: #888;
   --border: rgba(10,10,10,0.12);
   --col: calc(100% / 12);
-  /* Responsive spacing: 320px → 480px → 768px → 1024px */
   --page-padding: 16px;
   --section-padding-y: 40px;
-  /* Micro-interaction easing */
   --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
   --duration-fast: 0.2s;
@@ -59,7 +56,6 @@ body {
   position: relative;
 }
 
-/* Subtle focus ring for keyboard users */
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--black);
@@ -67,13 +63,11 @@ button:focus-visible {
   border-radius: 2px;
 }
 
-/* Touch devices: use default cursor */
 @media (hover: none) and (pointer: coarse) {
   body { cursor: auto; }
   .cursor, .cursor-ring { display: none !important; }
 }
 
-/* Cursor (used by app-cursor) */
 .cursor {
   position: fixed;
   width: 10px; height: 10px;
@@ -98,7 +92,6 @@ button:focus-visible {
 body:has(a:hover) .cursor, body:has(button:hover) .cursor { width: 6px; height: 6px; }
 body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 52px; height: 52px; opacity: 1; }
 
-/* Grid overlay */
 .grid-overlay {
   position: fixed;
   inset: 0;
@@ -120,7 +113,6 @@ body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 52p
   &:last-child { border-right: 1px solid rgba(10,10,10,0.04); }
 }
 
-/* Section base */
 section {
   position: relative;
   z-index: 1;
@@ -128,7 +120,6 @@ section {
   max-width: 100%;
 }
 
-/* Prevent long words/URLs from causing horizontal scroll */
 section,
 .about-body,
 .contact-intro,
@@ -138,7 +129,6 @@ section,
   word-wrap: break-word;
 }
 
-/* Reveal (used by appReveal directive) */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
@@ -159,7 +149,6 @@ section,
   }
 }
 
-/* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -180,12 +169,6 @@ section,
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-
-
-/* ─── Scroll Animation Additions for styles.scss ───────────────────────────
-   Paste these additions INTO your existing styles.scss file.
-   They complement — and do not replace — the existing styles.
-   ──────────────────────────────────────────────────────────────────────── */
 
 /* ── 1. Staggered reveal helpers (extend existing .reveal-delay-*) ───────── */
 .reveal-delay-5  { transition-delay: 0.5s !important; }
@@ -236,7 +219,6 @@ section,
 .count-up-host {
   display: inline-block;
   font-variant-numeric: tabular-nums;
-  /* prevent layout shift during count */
   min-width: 2ch;
 }
 
