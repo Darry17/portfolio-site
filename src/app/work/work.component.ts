@@ -31,7 +31,7 @@ export class WorkComponent {
       name: 'Component Guidelines',
       type: 'Documentation',
       year: '2024',
-      description: 'Wrote the playbook for 60+ components: how to use them, how they're built, states, a11y, and how to hand off to devs. The kind of docs you actually want to read.',
+      description: "Wrote the playbook for 60+ components: how to use them, how they're built, states, a11y, and how to hand off to devs. The kind of docs you actually want to read.",
     },
     {
       num: '03',
