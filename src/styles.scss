@@ -171,17 +171,13 @@ section,
   to { transform: translateX(-50%); }
 }
 
-/* ── 1. Staggered reveal helpers (extend existing .reveal-delay-*) ───────── */
 .reveal-delay-5  { transition-delay: 0.5s !important; }
 .reveal-delay-6  { transition-delay: 0.6s !important; }
 
-/* ── 2. Direction variants for the enhanced RevealDirective ──────────────── */
-/* (The directive now sets transforms inline; these are fallback classes) */
 .reveal-left  { transform: translateX(40px);  }
 .reveal-right { transform: translateX(-40px); }
 .reveal-fade  { transform: none;              }
 
-/* ── 3. Skill bar animations ─────────────────────────────────────────────── */
 .skill-bar {
   transform-origin: left;
   transform: scaleX(0);
@@ -189,7 +185,6 @@ section,
   &.animated { /* set by component */ }
 }
 
-/* ── 4. Project row — text clip reveal ───────────────────────────────────── */
 .project-name-clip {
   overflow: hidden;
   .project-name-inner {
@@ -202,7 +197,6 @@ section,
   }
 }
 
-/* ── 5. Section separator line draw ─────────────────────────────────────── */
 .line-draw {
   position: relative;
   &::after {
@@ -216,14 +210,12 @@ section,
   &.visible::after { width: 100%; }
 }
 
-/* ── 6. Number ticker (used by CountUpDirective host) ────────────────────── */
 .count-up-host {
   display: inline-block;
   font-variant-numeric: tabular-nums;
   min-width: 2ch;
 }
 
-/* ── 7. Scroll-driven image parallax wrapper ─────────────────────────────── */
 .parallax-wrap {
   overflow: hidden;
   .parallax-inner {
@@ -231,12 +223,10 @@ section,
   }
 }
 
-/* ── 8. Marquee pause-on-hover already exists; add direction-reverse option  */
 .marquee-track--reverse {
   animation-direction: reverse;
 }
 
-/* ── 9. Page-load body fade-in ───────────────────────────────────────────── */
 body {
   animation: bodyFadeIn 0.6s ease forwards;
 }
@@ -245,7 +235,6 @@ body {
   to   { opacity: 1; }
 }
 
-/* ── 10. Scroll-triggered char/word split helper ─────────────────────────── */
 .split-word {
   display: inline-block;
   overflow: hidden;
@@ -260,13 +249,11 @@ body {
   transform: translateY(0);
 }
 
-/* ── 11. Hover magnetic effect (applied via JS in work rows) ─────────────── */
 .magnetic {
   display: inline-block;
   transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-/* ── 12. Reduced-motion: respect user preference ─────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .skill-bar,
   .project-name-clip .project-name-inner,
