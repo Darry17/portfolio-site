@@ -6,12 +6,6 @@ import {
   inject,
 } from '@angular/core';
 
-/**
- * Adds a scroll-driven underline/highlight that expands as the element
- * enters the viewport — great for headlines and section numbers.
- *
- * Usage: <h2 appScrollHighlight>Title</h2>
- */
 @Directive({
   selector: '[appScrollHighlight]',
   standalone: true,
@@ -25,7 +19,6 @@ export class ScrollHighlightDirective implements OnInit, OnDestroy {
     el.style.position = 'relative';
     el.style.display = 'inline-block';
 
-    // Inject the underline pseudo-element via a wrapper span trick
     const line = document.createElement('span');
     line.style.cssText = `
       position: absolute;

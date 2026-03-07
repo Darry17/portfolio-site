@@ -14,7 +14,6 @@ import {
 export class ParallaxDirective implements OnInit, OnDestroy {
   private el = inject(ElementRef<HTMLElement>);
 
-  /** Speed multiplier: positive = slower than scroll (recedes), negative = faster (approaches) */
   @Input() appParallaxSpeed = 0.25;
   @Input() appParallaxAxis: 'y' | 'x' = 'y';
 

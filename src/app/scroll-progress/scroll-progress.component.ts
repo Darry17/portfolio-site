@@ -6,10 +6,6 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 
-/**
- * Thin reading-progress bar pinned to the top of the viewport.
- * Drop <app-scroll-progress /> at the top of app.component.html.
- */
 @Component({
   selector: 'app-scroll-progress',
   standalone: true,

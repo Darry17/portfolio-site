@@ -21,7 +21,6 @@ export class RevealDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     const el = this.el.nativeElement;
 
-    // Set initial state inline so it works without class dependency
     el.style.opacity = '0';
     el.style.transition = `opacity 0.85s cubic-bezier(0.33, 1, 0.68, 1), transform 0.85s cubic-bezier(0.33, 1, 0.68, 1)`;
 
