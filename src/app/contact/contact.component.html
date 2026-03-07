@@ -4,18 +4,18 @@
   </div>
   <div class="contact-main">
     <div>
-      <div class="section-number reveal" appReveal>04 — Say hi</div>
+      <div class="section-number reveal" appReveal>04 — Contact</div>
       <h2 class="contact-headline reveal reveal-delay-1" appReveal>
-        Let's make<br>something <em>cool.</em>
+        Let's build<br>something <em>lasting.</em>
       </h2>
       <a [href]="'mailto:' + email" class="contact-email reveal reveal-delay-2" appReveal>{{ email }}</a>
     </div>
     <p class="contact-intro about-body reveal" appReveal>
-      Up for a chat about design systems, product design, or a project that could use some structure and craft. No pitch decks required — just say hello.
+      Open to conversations about design system leadership, senior product design, and consulting engagements where design craft and systems thinking are valued.
     </p>
   </div>
   <div class="contact-side">
-    <div class="hero-sidebar-label reveal" appReveal>Hang out with me online</div>
+    <div class="hero-sidebar-label reveal" appReveal>Connect</div>
     @for (link of socialLinks; track link.label; let i = $index) {
       <a [href]="link.href" class="contact-link reveal" [class.reveal-delay-1]="i === 1" [class.reveal-delay-2]="i === 2" [class.reveal-delay-3]="i === 3" [class.reveal-delay-4]="i === 4" appReveal>
         <span>{{ link.label }}</span>
