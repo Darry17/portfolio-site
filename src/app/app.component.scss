@@ -5,6 +5,8 @@
 }
 
 main {
-  max-width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
   overflow-x: hidden;
+  width: 100%;
 }
