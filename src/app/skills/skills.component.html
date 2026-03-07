@@ -14,9 +14,6 @@
           @for (skill of category.skills; track skill.name) {
             <div class="skill-item">
               <span class="skill-name">{{ skill.name }}</span>
-              <div class="skill-bar-wrap">
-                <div #skillBar class="skill-bar" [attr.data-width]="skill.width"></div>
-              </div>
             </div>
           }
         </div>
