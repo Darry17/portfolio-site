@@ -37,6 +37,8 @@
 html {
   scroll-behavior: smooth;
   min-width: 320px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -47,6 +49,8 @@ body {
   overflow-x: hidden;
   cursor: none;
   min-width: 320px;
+  max-width: 100%;
+  position: relative;
 }
 
 /* Touch devices: use default cursor */
@@ -103,7 +107,22 @@ body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 52p
 }
 
 /* Section base */
-section { position: relative; z-index: 1; }
+section {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Prevent long words/URLs from causing horizontal scroll */
+section,
+.about-body,
+.contact-intro,
+.project-name,
+.hero-role-text {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 
 /* Reveal (used by appReveal directive) */
 .reveal {

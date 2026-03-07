@@ -1,12 +1,18 @@
 :host {
   display: block;
+  max-width: 100%;
+  overflow-x: hidden;
+  min-width: 0;
 }
 
 .marquee-strip {
   border-bottom: 1px solid var(--border);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   padding: 12px 0;
   background: var(--black);
+  max-width: 100%;
+  min-width: 0;
 }
 
 .marquee-track {

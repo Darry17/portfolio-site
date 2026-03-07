@@ -1,5 +1,7 @@
 :host {
   display: block;
+  max-width: 100%;
+  min-width: 0;
 }
 
 nav {
@@ -18,6 +20,8 @@ nav {
   background: rgba(245, 244, 240, 0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .nav-logo {
@@ -28,6 +32,11 @@ nav {
   text-transform: uppercase;
   color: var(--black);
   text-decoration: none;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 180px;
 }
 
 .nav-links {
