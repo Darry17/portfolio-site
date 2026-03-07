@@ -1,9 +1,10 @@
 <section id="hero">
+  <div class="hero-bg-accent" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-tag">Design systems &amp; frontend — from anywhere</div>
     <h1 class="hero-name">
       <span class="hero-name-line">Darry</span>
-      <span class="hero-name-line">Diaz.</span>
+      <span class="hero-name-line hero-name-line--italic">Diaz.</span>
     </h1>
     <div class="hero-role">
       <div class="hero-divider"></div>
@@ -11,21 +12,25 @@
     </div>
   </div>
   <div class="hero-sidebar">
-    <div>
-      <div class="hero-sidebar-label">Years in the game</div>
-      <div class="hero-sidebar-stat">5+</div>
-      <div class="hero-sidebar-desc">Design &amp; frontend</div>
-    </div>
-    <div>
-      <div class="hero-sidebar-label">Systems shipped</div>
-      <div class="hero-sidebar-stat">3</div>
-      <div class="hero-sidebar-desc">Full design systems, soup to nuts</div>
-    </div>
-    <div>
-      <div class="hero-sidebar-label">Components in the wild</div>
-      <div class="hero-sidebar-stat">100+</div>
-      <div class="hero-sidebar-desc">Tokens, variants &amp; docs</div>
-    </div>
+    @for (stat of stats; track $index) {
+      <div class="hero-stat">
+        <div class="hero-sidebar-label">
+          @switch ($index) {
+            @case (0) { Years in the game }
+            @case (1) { Systems shipped }
+            @case (2) { Components in the wild }
+          }
+        </div>
+        <div class="hero-sidebar-stat">{{ displayedValues[$index]() }}{{ stat.suffix }}</div>
+        <div class="hero-sidebar-desc">
+          @switch ($index) {
+            @case (0) { Design &amp; frontend }
+            @case (1) { Full design systems, soup to nuts }
+            @case (2) { Tokens, variants &amp; docs }
+          }
+        </div>
+      </div>
+    }
   </div>
   <div class="hero-scroll">
     <span class="hero-scroll-text">Keep scrolling — there's more</span>
