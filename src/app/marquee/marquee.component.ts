@@ -9,12 +9,12 @@ import { Component } from '@angular/core';
 export class MarqueeComponent {
   items = [
     'Design Systems',
-    'Component Architecture',
+    'Clean Components',
     'Design Tokens',
-    'Documentation',
-    'Frontend Engineering',
+    'Docs That Help',
+    'Frontend Fun',
     'Figma',
     'Accessibility',
-    'Maintainability',
+    'Making It Last',
   ];
 }
