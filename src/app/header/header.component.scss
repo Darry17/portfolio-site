@@ -22,6 +22,11 @@ nav {
   border-bottom: 1px solid var(--border);
   max-width: 100%;
   box-sizing: border-box;
+  transform: translateY(0);
+  transition: transform var(--duration-normal) var(--ease-out);
+  &.nav-hidden {
+    transform: translateY(-100%);
+  }
 }
 
 .nav-logo {
@@ -37,6 +42,12 @@ nav {
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 180px;
+  transition: opacity var(--duration-normal) var(--ease-out),
+    letter-spacing var(--duration-normal) var(--ease-out);
+  &:hover {
+    opacity: 0.75;
+    letter-spacing: 0.14em;
+  }
 }
 
 .nav-links {
@@ -51,8 +62,10 @@ nav {
     text-transform: uppercase;
     color: var(--mid);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
     position: relative;
+    display: inline-block;
     &::after {
       content: '';
       position: absolute;
@@ -62,13 +75,15 @@ nav {
       height: 1px;
       background: var(--black);
       transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+      transform-origin: right;
+      transition: transform var(--duration-normal) var(--ease-out-smooth);
     }
     &:hover {
       color: var(--black);
+      transform: translateY(-1px);
     }
     &:hover::after {
+      transform-origin: left;
       transform: scaleX(1);
     }
   }

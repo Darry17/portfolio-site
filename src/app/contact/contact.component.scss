@@ -47,9 +47,15 @@
   border-bottom: 1px solid var(--black);
   padding-bottom: 4px;
   display: inline-block;
-  transition: opacity 0.2s;
+  transition: opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
   word-break: break-all;
-  &:hover { opacity: 0.5; }
+  &:hover {
+    opacity: 0.7;
+    transform: translateY(-1px);
+    border-bottom-color: var(--mid);
+  }
 }
 
 .contact-intro {
@@ -83,11 +89,15 @@
   text-decoration: none;
   color: var(--mid);
   font-size: 12px;
-  transition: color 0.2s;
-  &:hover { color: var(--black); }
+  transition: color var(--duration-normal) var(--ease-out),
+    padding-left var(--duration-normal) var(--ease-out);
+  &:hover {
+    color: var(--black);
+    padding-left: 4px;
+  }
   .contact-link-arrow {
     font-size: 14px;
-    transition: transform 0.3s ease;
+    transition: transform var(--duration-normal) var(--ease-out-smooth);
   }
   &:hover .contact-link-arrow {
     transform: translate(4px, -4px);

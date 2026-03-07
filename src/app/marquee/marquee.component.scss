@@ -22,6 +22,10 @@
   width: max-content;
 }
 
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 .marquee-item {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 8px;
@@ -30,10 +34,15 @@
   color: rgba(245, 244, 240, 0.4);
   padding: 0 20px;
   white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-out);
   span {
     color: rgba(245, 244, 240, 0.15);
     margin: 0 8px;
   }
+}
+
+.marquee-strip:hover .marquee-item {
+  color: rgba(245, 244, 240, 0.6);
 }
 
 @media (min-width: 480px) {

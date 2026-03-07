@@ -1,4 +1,4 @@
-<nav>
+<nav [class.nav-hidden]="!headerVisible()">
   <a href="#hero" class="nav-logo">Darry Diaz — Designer</a>
   <ul class="nav-links">
     <li><a href="#about" [style.color]="isActive('#about') ? '#0a0a0a' : ''">About</a></li>

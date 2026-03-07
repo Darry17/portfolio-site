@@ -11,6 +11,12 @@
   /* Responsive spacing: 320px → 480px → 768px → 1024px */
   --page-padding: 16px;
   --section-padding-y: 40px;
+  /* Micro-interaction easing */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.45s;
 }
 
 @media (min-width: 480px) {
@@ -51,6 +57,14 @@ body {
   min-width: 320px;
   max-width: 100%;
   position: relative;
+}
+
+/* Subtle focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* Touch devices: use default cursor */
@@ -128,7 +142,7 @@ section,
 .reveal {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.8s var(--ease-out-smooth), transform 0.8s var(--ease-out-smooth);
   &.visible {
     opacity: 1;
     transform: translateY(0);
@@ -138,6 +152,12 @@ section,
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition-duration: 0.01ms;
+  }
+}
 
 /* Animations */
 @keyframes fadeUp {

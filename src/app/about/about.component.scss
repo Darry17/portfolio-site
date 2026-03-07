@@ -84,8 +84,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: color 0.2s;
-  &:hover { color: var(--black); }
+  transition: color var(--duration-normal) var(--ease-out),
+    padding-left var(--duration-normal) var(--ease-out);
   &::before {
     content: '';
     width: 4px;
@@ -93,6 +93,16 @@
     background: currentColor;
     border-radius: 50%;
     flex-shrink: 0;
+    transition: transform var(--duration-fast) var(--ease-out-smooth),
+      opacity var(--duration-fast) var(--ease-out);
+  }
+  &:hover {
+    color: var(--black);
+    padding-left: 4px;
+  }
+  &:hover::before {
+    transform: scale(1.25);
+    opacity: 1;
   }
 }
 
