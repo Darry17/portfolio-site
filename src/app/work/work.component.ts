@@ -1,4 +1,3 @@
-// src/app/work/work.component.ts
 import { Component, AfterViewInit, OnDestroy, ElementRef, inject } from '@angular/core';
 import { RevealDirective } from '../shared/directives/reveal.directive';
 
@@ -62,7 +61,6 @@ export class WorkComponent implements AfterViewInit, OnDestroy {
   ];
 
   ngAfterViewInit(): void {
-    // Clip-reveal: observe each .project-name-clip and add 'in-view' when visible
     this.clipObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -75,7 +73,6 @@ export class WorkComponent implements AfterViewInit, OnDestroy {
       { threshold: 0.2, rootMargin: '0px 0px -32px 0px' }
     );
 
-    // Slight stagger per row
     const clips = Array.from(
       this.el.querySelectorAll('.project-name')
     ) as HTMLElement[];

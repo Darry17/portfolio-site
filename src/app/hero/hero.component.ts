@@ -1,4 +1,3 @@
-// src/app/hero/hero.component.ts
 import { Component } from '@angular/core';
 import { CountUpDirective } from '../shared/directives/count-up.directive';
 
