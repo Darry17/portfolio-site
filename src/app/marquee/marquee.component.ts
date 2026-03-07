@@ -16,5 +16,6 @@ export class MarqueeComponent {
     'Figma',
     'Accessibility',
     'Maintainability',
+    'Leadership'
   ];
 }
