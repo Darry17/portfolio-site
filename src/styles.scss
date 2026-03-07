@@ -180,3 +180,115 @@ section,
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+
+
+/* ─── Scroll Animation Additions for styles.scss ───────────────────────────
+   Paste these additions INTO your existing styles.scss file.
+   They complement — and do not replace — the existing styles.
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ── 1. Staggered reveal helpers (extend existing .reveal-delay-*) ───────── */
+.reveal-delay-5  { transition-delay: 0.5s !important; }
+.reveal-delay-6  { transition-delay: 0.6s !important; }
+
+/* ── 2. Direction variants for the enhanced RevealDirective ──────────────── */
+/* (The directive now sets transforms inline; these are fallback classes) */
+.reveal-left  { transform: translateX(40px);  }
+.reveal-right { transform: translateX(-40px); }
+.reveal-fade  { transform: none;              }
+
+/* ── 3. Skill bar animations ─────────────────────────────────────────────── */
+.skill-bar {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.1s cubic-bezier(0.33, 1, 0.68, 1);
+  &.animated { /* set by component */ }
+}
+
+/* ── 4. Project row — text clip reveal ───────────────────────────────────── */
+.project-name-clip {
+  overflow: hidden;
+  .project-name-inner {
+    display: block;
+    transform: translateY(100%);
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  &.in-view .project-name-inner {
+    transform: translateY(0);
+  }
+}
+
+/* ── 5. Section separator line draw ─────────────────────────────────────── */
+.line-draw {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0%; height: 1px;
+    background: var(--border);
+    transition: width 1.2s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  &.visible::after { width: 100%; }
+}
+
+/* ── 6. Number ticker (used by CountUpDirective host) ────────────────────── */
+.count-up-host {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  /* prevent layout shift during count */
+  min-width: 2ch;
+}
+
+/* ── 7. Scroll-driven image parallax wrapper ─────────────────────────────── */
+.parallax-wrap {
+  overflow: hidden;
+  .parallax-inner {
+    will-change: transform;
+  }
+}
+
+/* ── 8. Marquee pause-on-hover already exists; add direction-reverse option  */
+.marquee-track--reverse {
+  animation-direction: reverse;
+}
+
+/* ── 9. Page-load body fade-in ───────────────────────────────────────────── */
+body {
+  animation: bodyFadeIn 0.6s ease forwards;
+}
+@keyframes bodyFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── 10. Scroll-triggered char/word split helper ─────────────────────────── */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.split-word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.split-word.visible .split-word-inner {
+  transform: translateY(0);
+}
+
+/* ── 11. Hover magnetic effect (applied via JS in work rows) ─────────────── */
+.magnetic {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* ── 12. Reduced-motion: respect user preference ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .skill-bar,
+  .project-name-clip .project-name-inner,
+  .split-word .split-word-inner,
+  .line-draw::after {
+    transition-duration: 0.01ms !important;
+  }
+}

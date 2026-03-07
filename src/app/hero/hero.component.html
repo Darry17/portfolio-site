@@ -1,3 +1,4 @@
+<!-- src/app/hero/hero.component.html (updated stat section using CountUpDirective) -->
 <section id="hero">
   <div class="hero-bg-accent" aria-hidden="true"></div>
   <div class="hero-content">
@@ -12,18 +13,26 @@
     </div>
   </div>
   <div class="hero-sidebar">
-    @for (stat of stats; track $index) {
+    @for (stat of stats; track $index; let i = $index) {
       <div class="hero-stat">
         <div class="hero-sidebar-label">
-          @switch ($index) {
+          @switch (i) {
             @case (0) { Years of experience }
             @case (1) { Design systems delivered }
             @case (2) { Components documented }
           }
         </div>
-        <div class="hero-sidebar-stat">{{ displayedValues[$index]() }}{{ stat.suffix }}</div>
+        <div class="hero-sidebar-stat">
+          <span
+            [appCountUp]="stat.end"
+            [countUpSuffix]="stat.suffix"
+            [countUpDuration]="stat.durationMs ?? 1400"
+            [countUpDelay]="2000 + i * 200"
+            class="count-up-host"
+          ></span>
+        </div>
         <div class="hero-sidebar-desc">
-          @switch ($index) {
+          @switch (i) {
             @case (0) { Design &amp; frontend }
             @case (1) { End-to-end design systems }
             @case (2) { Tokens, variants &amp; documentation }

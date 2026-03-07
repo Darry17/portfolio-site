@@ -1,23 +1,30 @@
+<!-- src/app/contact/contact.component.html -->
 <section id="contact">
   <div class="contact-label-col">
     <span class="section-label">Contact</span>
   </div>
   <div class="contact-main">
     <div>
-      <div class="section-number reveal" appReveal>04 — Contact</div>
-      <h2 class="contact-headline reveal reveal-delay-1" appReveal>
+      <div class="section-number reveal" appReveal [appRevealDelay]="0" appRevealDirection="fade">04 — Contact</div>
+      <h2 class="contact-headline reveal" appReveal [appRevealDelay]="100" appRevealDirection="up">
         Let's build<br>something <em>lasting.</em>
       </h2>
-      <a [href]="'mailto:' + email" class="contact-email reveal reveal-delay-2" appReveal>{{ email }}</a>
+      <a [href]="'mailto:' + email" class="contact-email reveal" appReveal [appRevealDelay]="220" appRevealDirection="up">{{ email }}</a>
     </div>
-    <p class="contact-intro about-body reveal" appReveal>
+    <p class="contact-intro about-body reveal" appReveal [appRevealDelay]="340" appRevealDirection="up">
       Open to conversations about design system leadership, senior product design, and consulting engagements where design craft and systems thinking are valued.
     </p>
   </div>
   <div class="contact-side">
-    <div class="hero-sidebar-label reveal" appReveal>Connect</div>
+    <div class="hero-sidebar-label reveal" appReveal [appRevealDelay]="0" appRevealDirection="fade">Connect</div>
     @for (link of socialLinks; track link.label; let i = $index) {
-      <a [href]="link.href" class="contact-link reveal" [class.reveal-delay-1]="i === 1" [class.reveal-delay-2]="i === 2" [class.reveal-delay-3]="i === 3" [class.reveal-delay-4]="i === 4" appReveal>
+      <a
+        [href]="link.href"
+        class="contact-link reveal"
+        appReveal
+        [appRevealDelay]="i * 80 + 100"
+        appRevealDirection="left"
+      >
         <span>{{ link.label }}</span>
         <span class="contact-link-arrow">↗</span>
       </a>

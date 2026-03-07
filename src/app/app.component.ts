@@ -9,6 +9,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { WorkComponent } from './work/work.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { ScrollProgressComponent } from './scroll-progress/scroll-progress.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
     WorkComponent,
     ContactComponent,
     FooterComponent,
+    ScrollProgressComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

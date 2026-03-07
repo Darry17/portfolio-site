@@ -1,3 +1,4 @@
+<!-- src/app/work/work.component.html -->
 <section id="work">
   <div class="work-header">
     <div class="work-header-left">
@@ -7,10 +8,17 @@
     <div class="work-count reveal" appReveal>03 — Work</div>
   </div>
   <div class="projects-list">
-    @for (project of projects; track project.num) {
-      <div class="project-row">
+    @for (project of projects; track project.num; let i = $index) {
+      <div
+        class="project-row reveal"
+        appReveal
+        [appRevealDelay]="i * 80"
+        appRevealDirection="up"
+      >
         <div class="project-num">{{ project.num }}</div>
-        <div class="project-name">{{ project.name }}</div>
+        <div class="project-name">
+          <span class="project-name-inner">{{ project.name }}</span>
+        </div>
         <div class="project-type">{{ project.type }}</div>
         <div class="project-year">{{ project.year }}</div>
         <div class="project-arrow">↗</div>

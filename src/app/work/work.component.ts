@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+// src/app/work/work.component.ts
+import { Component, AfterViewInit, OnDestroy, ElementRef, inject } from '@angular/core';
 import { RevealDirective } from '../shared/directives/reveal.directive';
 
 export interface Project {
@@ -17,7 +18,11 @@ export interface Project {
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss'],
 })
-export class WorkComponent {
+export class WorkComponent implements AfterViewInit, OnDestroy {
+  private elRef = inject(ElementRef);
+  private get el(): HTMLElement { return this.elRef.nativeElement as HTMLElement; }
+  private clipObserver: IntersectionObserver | null = null;
+
   projects: Project[] = [
     {
       num: '01',
@@ -55,4 +60,35 @@ export class WorkComponent {
       description: 'Designed and documented a contribution model enabling product designers to propose, review, and ship components into the shared system with consistency.',
     },
   ];
+
+  ngAfterViewInit(): void {
+    // Clip-reveal: observe each .project-name-clip and add 'in-view' when visible
+    this.clipObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            this.clipObserver?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -32px 0px' }
+    );
+
+    // Slight stagger per row
+    const clips = Array.from(
+      this.el.querySelectorAll('.project-name')
+    ) as HTMLElement[];
+    clips.forEach((clip: HTMLElement, i: number) => {
+      const inner = clip.querySelector('.project-name-inner') as HTMLElement | null;
+      if (inner) {
+        inner.style.transitionDelay = `${i * 80}ms`;
+      }
+      this.clipObserver?.observe(clip);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.clipObserver?.disconnect();
+  }
 }
