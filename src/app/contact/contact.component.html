@@ -1,0 +1,26 @@
+<section id="contact">
+  <div class="contact-label-col">
+    <span class="section-label">Contact</span>
+  </div>
+  <div class="contact-main">
+    <div>
+      <div class="section-number reveal" appReveal>04 — Contact</div>
+      <h2 class="contact-headline reveal reveal-delay-1" appReveal>
+        Let's build<br>something <em>lasting.</em>
+      </h2>
+      <a [href]="'mailto:' + email" class="contact-email reveal reveal-delay-2" appReveal>{{ email }}</a>
+    </div>
+    <p class="contact-intro about-body reveal" appReveal>
+      Open to conversations about design system roles, senior product design, or consulting engagements where design craft and systems thinking matter.
+    </p>
+  </div>
+  <div class="contact-side">
+    <div class="hero-sidebar-label reveal" appReveal>Find me online</div>
+    @for (link of socialLinks; track link.label; let i = $index) {
+      <a [href]="link.href" class="contact-link reveal" [class.reveal-delay-1]="i === 1" [class.reveal-delay-2]="i === 2" [class.reveal-delay-3]="i === 3" [class.reveal-delay-4]="i === 4" appReveal>
+        <span>{{ link.label }}</span>
+        <span class="contact-link-arrow">↗</span>
+      </a>
+    }
+  </div>
+</section>

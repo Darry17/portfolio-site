@@ -1,0 +1,21 @@
+<section id="work">
+  <div class="work-header">
+    <div class="work-header-left">
+      <span class="section-label">Work</span>
+    </div>
+    <h2 class="work-headline reveal" appReveal>Selected Projects</h2>
+    <div class="work-count reveal" appReveal>03 — Work</div>
+  </div>
+  <div class="projects-list">
+    @for (project of projects; track project.num) {
+      <div class="project-row">
+        <div class="project-num">{{ project.num }}</div>
+        <div class="project-name">{{ project.name }}</div>
+        <div class="project-type">{{ project.type }}</div>
+        <div class="project-year">{{ project.year }}</div>
+        <div class="project-arrow">↗</div>
+        <div class="project-desc">{{ project.description }}</div>
+      </div>
+    }
+  </div>
+</section>

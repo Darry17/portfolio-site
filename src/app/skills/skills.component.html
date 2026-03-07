@@ -1,0 +1,26 @@
+<section id="skills">
+  <div class="skills-label-col">
+    <span class="section-label">Skills</span>
+  </div>
+  <div class="skills-content">
+    <div class="skills-header">
+      <div class="section-number reveal" appReveal>02 — Skills</div>
+      <h2 class="skills-headline reveal" appReveal>Capabilities</h2>
+    </div>
+    <div class="skills-grid">
+      @for (category of categories; track category.label; let i = $index) {
+        <div class="skill-category reveal" [class.reveal-delay-1]="i === 1" [class.reveal-delay-2]="i === 2" appReveal>
+          <div class="skill-cat-label">{{ category.label }}</div>
+          @for (skill of category.skills; track skill.name) {
+            <div class="skill-item">
+              <span class="skill-name">{{ skill.name }}</span>
+              <div class="skill-bar-wrap">
+                <div #skillBar class="skill-bar" [attr.data-width]="skill.width"></div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+
+.marquee-strip {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  padding: 16px 0;
+  background: var(--black);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 20s linear infinite;
+  width: max-content;
+}
+
+.marquee-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 244, 240, 0.4);
+  padding: 0 40px;
+  white-space: nowrap;
+  span {
+    color: rgba(245, 244, 240, 0.15);
+    margin: 0 12px;
+  }
+}

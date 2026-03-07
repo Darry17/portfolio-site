@@ -1,12 +1,31 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CursorComponent } from './cursor/cursor.component';
+import { HeaderComponent } from './header/header.component';
+import { GridOverlayComponent } from './grid-overlay/grid-overlay.component';
+import { HeroComponent } from './hero/hero.component';
+import { MarqueeComponent } from './marquee/marquee.component';
+import { AboutComponent } from './about/about.component';
+import { SkillsComponent } from './skills/skills.component';
+import { WorkComponent } from './work/work.component';
+import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    CursorComponent,
+    HeaderComponent,
+    GridOverlayComponent,
+    HeroComponent,
+    MarqueeComponent,
+    AboutComponent,
+    SkillsComponent,
+    WorkComponent,
+    ContactComponent,
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'portfolio-site';
-}
+export class AppComponent {}
