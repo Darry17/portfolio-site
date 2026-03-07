@@ -14,7 +14,7 @@ export interface SocialLink {
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
-  email = 'hello@yourname.com';
+  email = 'darry.a.diaz@gmail.com';
   socialLinks: SocialLink[] = [
     { label: 'LinkedIn', href: '#' },
     { label: 'Dribbble', href: '#' },
