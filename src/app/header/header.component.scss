@@ -11,7 +11,9 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 48px;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px var(--page-padding);
   mix-blend-mode: normal;
   background: rgba(245, 244, 240, 0.92);
   backdrop-filter: blur(12px);
@@ -20,9 +22,9 @@ nav {
 
 .nav-logo {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 400;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--black);
   text-decoration: none;
@@ -30,12 +32,13 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 12px;
   list-style: none;
   a {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
+    font-size: 9px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--mid);
     text-decoration: none;
@@ -63,8 +66,36 @@ nav {
 }
 
 .nav-index {
+  display: none;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.1em;
   color: var(--mid);
+}
+
+@media (min-width: 480px) {
+  nav {
+    padding: 16px var(--page-padding);
+    gap: 16px;
+  }
+  .nav-logo { font-size: 10px; letter-spacing: 0.15em; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 9px; }
+}
+
+@media (min-width: 768px) {
+  nav {
+    padding: 20px var(--page-padding);
+    flex-wrap: nowrap;
+    gap: 24px;
+  }
+  .nav-logo { font-size: 11px; letter-spacing: 0.15em; }
+  .nav-links { gap: 32px; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
+  .nav-index { display: block; }
+}
+
+@media (min-width: 1024px) {
+  nav { padding: 24px var(--page-padding); }
+  .nav-links { gap: 40px; }
 }
