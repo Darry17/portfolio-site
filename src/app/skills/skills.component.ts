@@ -43,11 +43,7 @@ export class SkillsComponent implements AfterViewInit {
       label: 'Systems',
       skills: [
         { name: 'Token Architecture', width: 0.96 },
-        { name: 'Component API Design', width: 0.92 },
-        { name: 'Documentation', width: 0.95 },
-        { name: 'Accessibility', width: 0.87 },
-        { name: 'Governance & Guidelines', width: 0.9 },
-        { name: 'Storybook', width: 0.84 },
+        { name: 'UX-first System Flows', width: 0.80},
       ],
     },
     {
@@ -58,7 +54,6 @@ export class SkillsComponent implements AfterViewInit {
         { name: 'React', width: 0.78 },
         { name: 'CSS-in-JS / Tailwind', width: 0.85 },
         { name: 'Git / Version Control', width: 0.8 },
-        { name: 'Design Tokens (W3C)', width: 0.88 },
       ],
     },
   ];
