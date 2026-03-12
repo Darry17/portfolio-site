@@ -11,11 +11,11 @@ export class MarqueeComponent {
     'Design Systems',
     'Component Architecture',
     'Design Tokens',
-    'Documentation',
     'Frontend Engineering',
     'Figma',
     'Accessibility',
     'Maintainability',
-    'Leadership'
+    'Leadership',
+    'Systems Thinker'
   ];
 }
